@@ -8,4 +8,18 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Images\Logo\logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\Logo\logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="5.1.0" />
+  </ItemGroup>
+
 </Project>

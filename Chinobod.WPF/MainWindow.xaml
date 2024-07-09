@@ -4,9 +4,71 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Chinobod.WPF"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Icon="/Images/Logo/logo.png"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Style="{StaticResource MaterialDesignWindow}"
+        Height="700" Width="600"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        WindowState="Normal"
+        BorderThickness="0"
+        Background="Transparent">
+    <Grid x:Name="MainGrid" MouseLeftButtonDown="MainGrid_MouseLeftButtonDown">
+        <Border Background="#77D0D5"
+                Padding="15 0 15 15"
+                CornerRadius="10">
+            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
+                <Grid Grid.Row="0">
+                    <DockPanel HorizontalAlignment="Left"
+                               VerticalAlignment="Center">
+                        <TextBlock Text="Chinobod"
+                                   FontSize="20"
+                                   FontWeight="Bold"
+                                   Foreground="#6E7F80"/>
+                    </DockPanel>
+                    <DockPanel 
+                        HorizontalAlignment="Right">
+                        <Button x:Name="Minimized"
+                            Height="30"
+                            Width="30"
+                            Background="#8DA399"
+                            Click="Minimized_Click">
+                            <md:PackIcon Kind="Minimize"
+                                         Width="20"
+                                         Height="20"
+                                         VerticalAlignment="Bottom"
+                                         HorizontalAlignment="Center"/>
+                        </Button>
+
+                        <Button x:Name="Closed"
+                            Height="30"
+                            Width="30"
+                            Background="#EB4C42"
+                            Click="Closed_Click">
+                            <md:PackIcon Kind="Close"
+                                         Width="20"
+                                         Height="20"
+                                         VerticalAlignment="Center"
+                                         HorizontalAlignment="Center"/>
+                        </Button>
+                    </DockPanel>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Border BorderThickness="0"
+                            Background="#BBFCFF"
+                            CornerRadius="10">
+                        
+                    </Border>
+                </Grid>
+            </Grid>
+
+        </Border>
     </Grid>
 </Window>

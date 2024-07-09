@@ -20,7 +20,7 @@
             
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="50"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
@@ -37,13 +37,9 @@
                         <Button x:Name="Minimized"
                             Height="30"
                             Width="30"
+                            Margin="0 0 10 0"
                             Background="#8DA399"
                             Click="Minimized_Click">
-                            <md:PackIcon Kind="Minimize"
-                                         Width="20"
-                                         Height="20"
-                                         VerticalAlignment="Bottom"
-                                         HorizontalAlignment="Center"/>
                         </Button>
 
                         <Button x:Name="Closed"
@@ -51,11 +47,6 @@
                             Width="30"
                             Background="#EB4C42"
                             Click="Closed_Click">
-                            <md:PackIcon Kind="Close"
-                                         Width="20"
-                                         Height="20"
-                                         VerticalAlignment="Center"
-                                         HorizontalAlignment="Center"/>
                         </Button>
                     </DockPanel>
                 </Grid>

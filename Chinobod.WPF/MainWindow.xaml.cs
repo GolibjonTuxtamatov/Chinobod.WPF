@@ -20,5 +20,20 @@ namespace Chinobod.WPF
         {
             InitializeComponent();
         }
+
+        private void MainGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
+        private void Minimized_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void Closed_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

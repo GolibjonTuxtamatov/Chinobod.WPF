@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace Chinobod.WPF.Controls
 {
@@ -13,7 +14,22 @@ namespace Chinobod.WPF.Controls
             this.DataContext = this;
         }
 
-        public string NewsTitle { get; set; }
-        public string NewsDescription { get; set; }
+        public static readonly DependencyProperty NewsTitleProperty =
+        DependencyProperty.Register("NewsTitle", typeof(string), typeof(NewsControl), new PropertyMetadata(string.Empty));
+
+        public string NewsTitle
+        {
+            get { return (string)GetValue(NewsTitleProperty); }
+            set { SetValue(NewsTitleProperty, value); }
+        }
+
+        public static readonly DependencyProperty NewsDescriptionProperty =
+            DependencyProperty.Register("NewsDescription", typeof(string), typeof(NewsControl), new PropertyMetadata(string.Empty));
+
+        public string NewsDescription
+        {
+            get { return (string)GetValue(NewsDescriptionProperty); }
+            set { SetValue(NewsDescriptionProperty, value); }
+        }
     }
 }

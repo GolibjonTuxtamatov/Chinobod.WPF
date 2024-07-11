@@ -1,4 +1,6 @@
 ﻿using System.Windows;
+using Chinobod.WPF.Brokers.APIBroker;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Chinobod.WPF
 {
@@ -7,7 +9,23 @@ namespace Chinobod.WPF
     /// </summary>
     public partial class App : Application
     {
+        public IServiceProvider ServiceProvider { get; private set; }
 
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            var serviceCollection = new ServiceCollection();
+            ConfigureServices(serviceCollection);
+            ServiceProvider = serviceCollection.BuildServiceProvider();
+
+            var mainWindow = ServiceProvider.GetRequiredService<MainWindow>();
+            mainWindow.Show();
+        }
+
+        private void ConfigureServices(IServiceCollection services)
+        {
+            services.AddSingleton<MainWindow>();
+            services.AddTransient<IApiBroker, ApiBroker>();
+        }
     }
 
 }

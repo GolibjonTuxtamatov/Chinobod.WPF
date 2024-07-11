@@ -2,7 +2,7 @@
 
 namespace Chinobod.WPF.Brokers.APIBroker
 {
-    internal interface IApiBroker
+    public interface IApiBroker
     {
         ValueTask<News> InsertNewsAsync(News news);
         IQueryable<News> SelectAllNews();

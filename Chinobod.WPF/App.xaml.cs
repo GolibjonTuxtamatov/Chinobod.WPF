@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using Chinobod.WPF.Brokers.APIBroker;
+using Chinobod.WPF.Services.Foundations.Newses;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Chinobod.WPF
@@ -24,7 +25,10 @@ namespace Chinobod.WPF
         private void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<MainWindow>();
+
             services.AddTransient<IApiBroker, ApiBroker>();
+
+            services.AddTransient<INewsService, NewsService>();
         }
     }
 

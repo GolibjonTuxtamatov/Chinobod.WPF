@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Chinobod.WPF.Models.API
+﻿namespace Chinobod.WPF.Models.API
 {
     internal static class API
     {

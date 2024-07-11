@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Documents;
 using Chinobod.WPF.Models.API;
 using Chinobod.WPF.Models.News;
 using Newtonsoft.Json;
@@ -29,7 +24,7 @@ namespace Chinobod.WPF.Brokers.APIBroker
                 new StringContent(newsJson, Encoding.UTF8, "application/json");
 
             var responce =
-                await this.client.PostAsync("News",content);
+                await this.client.PostAsync("News", content);
 
             var responceContent = await responce.Content.ReadAsStringAsync();
 

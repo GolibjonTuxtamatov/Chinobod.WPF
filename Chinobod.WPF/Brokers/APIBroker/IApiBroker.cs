@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Chinobod.WPF.Models.News;
+﻿using Chinobod.WPF.Models.News;
 
 namespace Chinobod.WPF.Brokers.APIBroker
 {

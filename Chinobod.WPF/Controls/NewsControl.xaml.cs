@@ -11,7 +11,6 @@ namespace Chinobod.WPF.Controls
         public NewsControl()
         {
             InitializeComponent();
-            this.DataContext = this;
         }
 
         public static readonly DependencyProperty NewsTitleProperty =

@@ -22,7 +22,7 @@
                     CornerRadius="10 10 0 0"
                     Background="#B1E5E8">
                 <Grid>
-                    <Label x:Name="Title" Content="{Binding NewsTitle}"
+                    <Label x:Name="Title" Content="{Binding NewsTitle, RelativeSource={RelativeSource AncestorType={x:Type local:NewsControl}}}"
                            FontSize="20"
                            FontWeight="Bold"
                            Foreground="#536872"
@@ -53,7 +53,7 @@
                     Background="#B1E5E8">
 
                 <TextBlock x:Name="Description"
-                           Text="{Binding NewsDescription}"
+                           Text="{Binding NewsDescription, RelativeSource={RelativeSource AncestorType={x:Type local:NewsControl}}}"
                            Background="AliceBlue"
                            Foreground="#6E7F80"
                            FontSize="16"

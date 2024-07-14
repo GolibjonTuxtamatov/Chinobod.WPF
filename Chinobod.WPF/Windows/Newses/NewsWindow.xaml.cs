@@ -43,6 +43,9 @@ namespace Chinobod.WPF.Windows.Newses
             set { description = value; }
         }
 
-
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

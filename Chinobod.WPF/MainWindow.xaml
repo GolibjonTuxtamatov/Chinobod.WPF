@@ -65,7 +65,15 @@
                             </Grid.RowDefinitions>
 
                             <DockPanel Grid.Row="0">
-
+                                <Button x:Name="addNewsBtn"
+                                        Content="Qo'shish"
+                                        Height="30"
+                                        Width="100"
+                                        HorizontalAlignment="Right"
+                                        Margin="0 0 30 0"
+                                        md:ButtonAssist.CornerRadius="3"
+                                        Background="#318CE7"
+                                        Click="addNewsBtn_Click"/>
                             </DockPanel>
 
                             <DockPanel Grid.Row="1">

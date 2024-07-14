@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Chinobod.WPF.Models.News;
+using Chinobod.WPF.Services.Foundations.Newses;
 
 namespace Chinobod.WPF.Windows.Newses
 {
@@ -19,9 +21,11 @@ namespace Chinobod.WPF.Windows.Newses
     /// </summary>
     public partial class NewsWindow : Window
     {
-        public NewsWindow()
+        private readonly INewsService newsService;
+        public NewsWindow(INewsService newsService)
         {
             InitializeComponent();
+            this.newsService = newsService;
         }
 
 
@@ -57,11 +61,27 @@ namespace Chinobod.WPF.Windows.Newses
             this.Close();
         }
 
-        private void Save_Click(object sender, RoutedEventArgs e)
+        private async void Save_Click(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrEmpty(NewsTitle) && !string.IsNullOrEmpty(NewsDescription))
             {
-                MessageBox.Show($"{NewsTitle} {NewsDescription} {ShouldDelete}");
+                var news = new News
+                {
+                    Id = Guid.NewGuid(),
+                    Title = NewsTitle,
+                    Description = NewsDescription,
+                    CreatedDate = DateTimeOffset.Now,
+                    ShouldDelete = this.ShouldDelete
+                };
+
+                var postedNews = await this.newsService.AddNewsAsync(news);
+
+                if (postedNews != null)
+                    MessageBox.Show("Saqlandi!", "Qo'shish", MessageBoxButton.OK, MessageBoxImage.Information);
+                else
+                    MessageBox.Show("Nimadur xato boldi!", "Qo'shish", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                this.Close();
             }
             else
             {

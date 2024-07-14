@@ -20,7 +20,7 @@ namespace Chinobod.WPF
             InitializeComponent();
             DataContext = this;
             this.newsService = newsService;
-            //news = this.newsService.RetrieveAllNewses();
+            news = this.newsService.RetrieveAllNewses();
         }
 
         private void MainGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -47,7 +47,7 @@ namespace Chinobod.WPF
 
         private void addNewsBtn_Click(object sender, RoutedEventArgs e)
         {
-            newsWindow = new NewsWindow();
+            newsWindow = new NewsWindow(this.newsService);
 
             newsWindow.ShowDialog();
         }

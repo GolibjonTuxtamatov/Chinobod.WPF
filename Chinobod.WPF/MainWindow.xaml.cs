@@ -51,5 +51,8 @@ namespace Chinobod.WPF
 
             newsWindow.ShowDialog();
         }
+
+        private void refreshNewsBtn_Click(object sender, RoutedEventArgs e) =>
+            newsesList.ItemsSource = this.newsService.RetrieveAllNewses();
     }
 }

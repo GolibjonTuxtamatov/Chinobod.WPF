@@ -68,7 +68,8 @@
                             Width="100"
                             Background="#838996"
                             Foreground="AliceBlue"
-                            md:ButtonAssist.CornerRadius="5"/>
+                            md:ButtonAssist.CornerRadius="5"
+                            Click="Cancel_Click"/>
 
                 </DockPanel>
             </Grid>

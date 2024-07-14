@@ -35,7 +35,8 @@ namespace Chinobod.WPF
 
         private void Closed_Click(object sender, RoutedEventArgs e)
         {
-            newsWindow.Close();
+            if(newsWindow != null)
+                newsWindow.Close();
             this.Close();
         }
 

@@ -17,14 +17,14 @@
                 <RowDefinition Height="3*"/>
                 <RowDefinition Height="6*"/>
             </Grid.RowDefinitions>
-            <TextBox Text="{Binding Title, RelativeSource={RelativeSource AncestorType={x:Type local:NewsWindow}},Mode=TwoWay}"
+            <TextBox Text="{Binding NewsTitle, RelativeSource={RelativeSource AncestorType={x:Type local:NewsWindow}},Mode=TwoWay}"
                        Grid.Row="0"
                        Foreground="DarkBlue"
                        Height="auto"
                        Width="auto"
                        Margin="10"
                        Background="AliceBlue"
-                       md:HintAssist.Hint="Title"
+                       md:HintAssist.Hint="Sarlavha"
                        md:HintAssist.Foreground="#838996"
                        FontSize="20"
                        Padding="10"
@@ -33,22 +33,38 @@
             <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="5*"/>
+                    <RowDefinition Height="0.5*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <TextBox Text="{Binding Description, RelativeSource={RelativeSource AncestorType={x:Type local:NewsWindow}},Mode=TwoWay}"
+                <TextBox Text="{Binding NewsDescription, RelativeSource={RelativeSource AncestorType={x:Type local:NewsWindow}},Mode=TwoWay}"
                            Grid.Row="0"
                            Foreground="DarkBlue"
                            Height="auto"
                            Width="auto"
                            Margin="10"
                            Background="AliceBlue"
-                           md:HintAssist.Hint="Description"
+                           md:HintAssist.Hint="Tasvirlash"
                            md:HintAssist.Foreground="#838996"
                            FontSize="20"
                            Padding="10"
                            HorizontalContentAlignment="Left"
                            VerticalContentAlignment="Top"/>
+
                 <DockPanel Grid.Row="1"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="15 0 15 0">
+                    <CheckBox Content="O'chiriluvchi yangilik."
+                              Foreground="#004242"
+                              FontSize="16"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Background="White"
+                              IsChecked="{Binding ShouldDelete, RelativeSource={RelativeSource AncestorType={x:Type local:NewsWindow}},Mode=TwoWay}"
+                              md:CheckBoxAssist.CheckBoxSize="20"/>
+                </DockPanel>
+                
+                <DockPanel Grid.Row="2"
                            HorizontalAlignment="Right"
                            Margin="10 0 10 0"
                            VerticalAlignment="Center"
@@ -60,7 +76,8 @@
                             Background="#50C878"
                             Foreground="AliceBlue"
                             md:ButtonAssist.CornerRadius="5"
-                            Margin="0 0 15 0"/>
+                            Margin="0 0 15 0"
+                            Click="Save_Click"/>
                     
                     <Button x:Name="Cancel"
                             Content="Qaytarish"

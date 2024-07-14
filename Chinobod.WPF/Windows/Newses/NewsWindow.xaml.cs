@@ -28,7 +28,7 @@ namespace Chinobod.WPF.Windows.Newses
 
         private string title;
 
-        public string Title
+        public string NewsTitle
         {
             get { return title; }
             set { title = value; }
@@ -37,15 +37,36 @@ namespace Chinobod.WPF.Windows.Newses
 
         private string description;
 
-        public string Description
+        public string NewsDescription
         {
             get { return description; }
             set { description = value; }
         }
 
+        private bool shouldDelete = true;
+
+        public bool ShouldDelete
+        {
+            get { return shouldDelete; }
+            set { shouldDelete = value; }
+        }
+
+
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(NewsTitle) && !string.IsNullOrEmpty(NewsDescription))
+            {
+                MessageBox.Show($"{NewsTitle} {NewsDescription} {ShouldDelete}");
+            }
+            else
+            {
+                MessageBox.Show("Sarlavha va Tasvirlash yozilsin!", "Xato", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

@@ -2,6 +2,8 @@
 using System.Windows.Controls;
 using Chinobod.WPF.Brokers.APIBroker;
 using Chinobod.WPF.Services.Foundations.Newses;
+using Chinobod.WPF.Windows.Newses;
+using MaterialDesignThemes.Wpf;
 
 namespace Chinobod.WPF.Controls
 {
@@ -48,6 +50,32 @@ namespace Chinobod.WPF.Controls
             set { SetValue(NewsDescriptionProperty, value); }
         }
 
+
+
+        public DateTimeOffset NewsCreatedDate
+        {
+            get { return (DateTimeOffset)GetValue(NewsCreatedDateProperty); }
+            set { SetValue(NewsCreatedDateProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for NewsCreatedDate.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty NewsCreatedDateProperty =
+            DependencyProperty.Register("NewsCreatedDate", typeof(DateTimeOffset), typeof(NewsControl), new PropertyMetadata(default));
+
+
+
+        public bool NewsShouldDelete
+        {
+            get { return (bool)GetValue(NewsShouldDeleteProperty); }
+            set { SetValue(NewsShouldDeleteProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for NewsShouldDelete.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty NewsShouldDeleteProperty =
+            DependencyProperty.Register("NewsShouldDelete", typeof(bool), typeof(NewsControl), new PropertyMetadata(false));
+
+
+
         private async void DeleteNews_Click(object sender, RoutedEventArgs e)
         {
             if(NewsId != Guid.Empty)
@@ -65,6 +93,17 @@ namespace Chinobod.WPF.Controls
                 }
 
             }
+        }
+
+        private void UpdateNews_Click(object sender, RoutedEventArgs e)
+        {
+            var newsWindow = new NewsWindow(this.newsService);
+            newsWindow.NewsId = NewsId;
+            newsWindow.NewsTitle = NewsTitle;
+            newsWindow.NewsDescription = NewsDescription;
+            newsWindow.NewsCreatedDate = NewsCreatedDate;
+            newsWindow.ShouldDelete = NewsShouldDelete;
+            newsWindow.ShowDialog();
         }
     }
 }

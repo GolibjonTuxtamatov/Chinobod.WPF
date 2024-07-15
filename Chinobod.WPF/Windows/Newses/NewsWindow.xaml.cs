@@ -28,6 +28,14 @@ namespace Chinobod.WPF.Windows.Newses
             this.newsService = newsService;
         }
 
+        private Guid id;
+
+        public Guid NewsId
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
 
 
         private string title;
@@ -47,6 +55,15 @@ namespace Chinobod.WPF.Windows.Newses
             set { description = value; }
         }
 
+        private DateTimeOffset createdDate;
+
+        public DateTimeOffset NewsCreatedDate
+        {
+            get { return createdDate; }
+            set { createdDate = value; }
+        }
+
+
         private bool shouldDelete = true;
 
         public bool ShouldDelete
@@ -63,7 +80,7 @@ namespace Chinobod.WPF.Windows.Newses
 
         private async void Save_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(NewsTitle) && !string.IsNullOrEmpty(NewsDescription))
+            if (!string.IsNullOrEmpty(NewsTitle) && !string.IsNullOrEmpty(NewsDescription) && NewsId == Guid.Empty)
             {
                 var news = new News
                 {
@@ -77,6 +94,26 @@ namespace Chinobod.WPF.Windows.Newses
                 var postedNews = await this.newsService.AddNewsAsync(news);
 
                 if (postedNews != null)
+                    MessageBox.Show("Saqlandi!", "Qo'shish", MessageBoxButton.OK, MessageBoxImage.Information);
+                else
+                    MessageBox.Show("Nimadur xato boldi!", "Qo'shish", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                this.Close();
+            }
+            else if(!string.IsNullOrEmpty(NewsTitle) && !string.IsNullOrEmpty(NewsDescription) && NewsId != Guid.Empty)
+            {
+                var news = new News
+                {
+                    Id = NewsId,
+                    Title = NewsTitle,
+                    Description = NewsDescription,
+                    CreatedDate = NewsCreatedDate,
+                    ShouldDelete = this.ShouldDelete
+                };
+
+                var modifiedNews = await this.newsService.ModifyNewsAsync(news);
+
+                if (modifiedNews != null)
                     MessageBox.Show("Saqlandi!", "Qo'shish", MessageBoxButton.OK, MessageBoxImage.Information);
                 else
                     MessageBox.Show("Nimadur xato boldi!", "Qo'shish", MessageBoxButton.OK, MessageBoxImage.Error);

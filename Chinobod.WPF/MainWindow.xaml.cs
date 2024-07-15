@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Input;
+using Chinobod.WPF.Controls;
 using Chinobod.WPF.Models.News;
 using Chinobod.WPF.Services.Foundations.Newses;
 using Chinobod.WPF.Windows.Newses;
@@ -20,7 +21,7 @@ namespace Chinobod.WPF
             InitializeComponent();
             DataContext = this;
             this.newsService = newsService;
-            news = this.newsService.RetrieveAllNewses();
+            //news = this.newsService.RetrieveAllNewses();
         }
 
         private void MainGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -42,7 +43,21 @@ namespace Chinobod.WPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            newsesList.ItemsSource = news;
+            newsesList.Items.Add(
+                new
+                {
+                    Id = Guid.NewGuid(),
+                    Title = "Assalom",
+                    Description = "Ozbekiston"
+                });
+
+            newsesList.Items.Add(
+                new
+                {
+                    Id = Guid.NewGuid(),
+                    Title = "Assalom",
+                    Description = "Namangan"
+                });
         }
 
         private void addNewsBtn_Click(object sender, RoutedEventArgs e)

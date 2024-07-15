@@ -22,6 +22,8 @@
                     CornerRadius="10 10 0 0"
                     Background="#B1E5E8">
                 <Grid>
+                    <Label Content="{Binding new, RelativeSource={RelativeSource AncestorType={x:Type local:NewsControl}}}"
+                           Visibility="Hidden"/>
                     <Label x:Name="Title" Content="{Binding NewsTitle, RelativeSource={RelativeSource AncestorType={x:Type local:NewsControl}}}"
                            FontSize="20"
                            FontWeight="Bold"
@@ -43,7 +45,8 @@
                                 Foreground="#6E7F80"
                                 md:ButtonAssist.CornerRadius="5"
                                 Background="AliceBlue"
-                                Margin="5 0 10 0"/>
+                                Margin="5 0 10 0"
+                                Click="DeleteNews_Click"/>
                     </DockPanel>
                 </Grid>
             </Border>

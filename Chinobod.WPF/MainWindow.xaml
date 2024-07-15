@@ -89,7 +89,8 @@
                                 <ListView x:Name="newsesList">
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
-                                            <ctrl:NewsControl NewsTitle="{Binding Title}"
+                                            <ctrl:NewsControl NewsId="{Binding Id}"
+                                                              NewsTitle="{Binding Title}"
                                                               NewsDescription="{Binding Description}"/>
                                         </DataTemplate>
                                     </ListView.ItemTemplate>

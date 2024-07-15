@@ -38,7 +38,8 @@
                                 Content="O'zgartirish"
                                 Foreground="#6E7F80"
                                 md:ButtonAssist.CornerRadius="5"
-                                Background="AliceBlue"/>
+                                Background="AliceBlue"
+                                Click="UpdateNews_Click"/>
                         
                         <Button x:Name="DeleteNews"
                                 Content="O'chirish"

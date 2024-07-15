@@ -21,7 +21,7 @@ namespace Chinobod.WPF
             InitializeComponent();
             DataContext = this;
             this.newsService = newsService;
-            //news = this.newsService.RetrieveAllNewses();
+            news = this.newsService.RetrieveAllNewses();
         }
 
         private void MainGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -43,21 +43,23 @@ namespace Chinobod.WPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            newsesList.Items.Add(
-                new
-                {
-                    Id = Guid.NewGuid(),
-                    Title = "Assalom",
-                    Description = "Ozbekiston"
-                });
+            newsesList.ItemsSource = news;
 
-            newsesList.Items.Add(
-                new
-                {
-                    Id = Guid.NewGuid(),
-                    Title = "Assalom",
-                    Description = "Namangan"
-                });
+            //newsesList.Items.Add(
+            //    new
+            //    {
+            //        Id = Guid.NewGuid(),
+            //        Title = "Assalom",
+            //        Description = "Ozbekiston"
+            //    });
+
+            //newsesList.Items.Add(
+            //    new
+            //    {
+            //        Id = Guid.NewGuid(),
+            //        Title = "Assalom",
+            //        Description = "Namangan"
+            //    });
         }
 
         private void addNewsBtn_Click(object sender, RoutedEventArgs e)

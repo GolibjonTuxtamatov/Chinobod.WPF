@@ -72,7 +72,7 @@ namespace Chinobod.WPF.Controls
 
         // Using a DependencyProperty as the backing store for NewsShouldDelete.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty NewsShouldDeleteProperty =
-            DependencyProperty.Register("NewsShouldDelete", typeof(bool), typeof(NewsControl), new PropertyMetadata(false));
+            DependencyProperty.Register("NewsShouldDelete", typeof(bool), typeof(NewsControl), new PropertyMetadata(true));
 
 
 

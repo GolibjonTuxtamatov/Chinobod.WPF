@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Images\Icon\logo.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Images\Icon\logo.ico" />
     <Content Include="Images\Logo\logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -2,6 +2,6 @@
 {
     internal static class API
     {
-        public static string BASEURL = "https://localhost:7055/api/";
+        public static string BASEURL = "https://chinobod-141c9a53a352.herokuapp.com/api/";
     }
 }

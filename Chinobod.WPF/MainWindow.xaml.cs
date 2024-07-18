@@ -68,6 +68,15 @@ namespace Chinobod.WPF
             {
                 if (IsInternetAvailable())
                 {
+                    MessageBoxResult asking = 
+                        MessageBox.Show("Eski yangiliklarni o'chirasizmi?",
+                                        "So'rash",
+                                        MessageBoxButton.YesNo,
+                                        MessageBoxImage.Question);
+                    
+                    if (asking == MessageBoxResult.Yes)
+                        DeleteNotNeedNewses();
+
                     news = this.newsService.RetrieveAllNewses();
 
                     newsesList.ItemsSource = news;
@@ -118,5 +127,8 @@ namespace Chinobod.WPF
             }
             return false;
         }
+
+        private async void DeleteNotNeedNewses() =>
+            await this.newsService.RemoveNotNeedNewsesAsync();
     }
 }

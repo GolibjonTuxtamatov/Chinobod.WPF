@@ -14,5 +14,6 @@ namespace Chinobod.WPF.Services.Foundations.Newses
         ValueTask<News> RetrieveNewsByIdAsync(Guid id);
         ValueTask<News> ModifyNewsAsync(News news);
         ValueTask<News> RemoveNewsAsync(Guid id);
+        ValueTask RemoveNotNeedNewsesAsync();
     }
 }

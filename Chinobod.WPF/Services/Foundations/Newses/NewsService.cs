@@ -29,5 +29,8 @@ namespace Chinobod.WPF.Services.Foundations.Newses
 
         public async ValueTask<News> RemoveNewsAsync(Guid id) =>
             await this.apiBroker.DeleteNewsAsync(id);
+
+        public async ValueTask RemoveNotNeedNewsesAsync() =>
+            await this.apiBroker.DeleteNotNeedNewsesAsync();
     }
 }

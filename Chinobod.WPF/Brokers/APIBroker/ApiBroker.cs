@@ -71,5 +71,7 @@ namespace Chinobod.WPF.Brokers.APIBroker
 
             return JsonConvert.DeserializeObject<News>(responceContent);
         }
+        public async ValueTask<HttpResponseMessage> DeleteNotNeedNewsesAsync() =>
+                await this.client.DeleteAsync($"News");
     }
 }

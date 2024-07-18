@@ -1,4 +1,5 @@
-﻿using Chinobod.WPF.Models.News;
+﻿using System.Net.Http;
+using Chinobod.WPF.Models.News;
 
 namespace Chinobod.WPF.Brokers.APIBroker
 {
@@ -9,5 +10,6 @@ namespace Chinobod.WPF.Brokers.APIBroker
         ValueTask<News> SelectNewsByIdAsync(Guid id);
         ValueTask<News> UpdateNewsAsync(News news);
         ValueTask<News> DeleteNewsAsync(Guid id);
+        ValueTask<HttpResponseMessage> DeleteNotNeedNewsesAsync();
     }
 }
